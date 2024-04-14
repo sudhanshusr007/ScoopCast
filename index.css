@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #8a2be2; /* Purple background */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loader-container,
+.text-container {
+    margin-bottom: 20px; /* Adjust spacing between loader and text */
+}
+
+.loader-container {
+    width: 300px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    background-color: #f3f3f3; /* Light gray background */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.loader {
+    width: 0; /* Initial width of loader */
+    height: 100%; /* Full height */
+    background-color: #3498db; /* Blue color */
+    animation: loading 2s infinite; /* Animation */
+}
+
+@keyframes loading {
+    0% {
+        width: 0; /* Start with no width */
+    }
+    50% {
+        width: 100%; /* Expand halfway */
+    }
+    100% {
+        width: 0; /* Return to no width */
+    }
+}
+
+.flicker-text {
+    font-size: 3em; /* Adjust font size as needed */
+    color: white; /* Text color */
+    animation: flicker 1s infinite; /* Flicker animation */
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 4px rgba(255,255,255,0.5); /* Add shadow effect */
+        color: white; /* Text color */
+    }
+    20%, 24%, 55% {
+        opacity: calc(0.5 + 0.5 * random()); /* Random opacity between 0.5 and 1 */
+        text-shadow: none; /* No shadow during flicker */
+        color: #f1c40f; /* Change text color */
+    }
+}
+
